@@ -1,0 +1,390 @@
+/* public/css/titan.css */
+/* Cambiamos a 'Outfit' para una geometría más moderna y con carácter */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+    --bg-dark: #09090b;       /* Negro casi puro, más profundo */
+    --card-bg: #18181b;       /* Zinc oscuro para las tarjetas */
+    --text-primary: #f4f4f5;  /* Blanco hueso */
+    --text-secondary: #a1a1aa;/* Gris metálico */
+    
+    /* CAMBIO RADICAL: Del azul genérico al Ámbar Industrial */
+    --accent: #f59e0b;        
+    --accent-hover: #d97706;
+    
+    --border: #27272a;
+    --glow: rgba(245, 158, 11, 0.15); /* Resplandor dorado */
+}
+
+body {
+    background-color: var(--bg-dark);
+    /* PATRÓN DE FONDO: Puntos sutiles para dar textura y quitar el look "plano" */
+    background-image: radial-gradient(#27272a 1px, transparent 1px);
+    background-size: 24px 24px;
+    
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    padding: 40px;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+}
+
+/* Animación: Una entrada más mecánica y precisa */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 40px;
+    
+    /* Bordes más definidos, estilo industrial */
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    
+    /* Sombra técnica, sin difuminado excesivo */
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        0 20px 40px -20px rgba(0, 0, 0, 0.8);
+        
+    animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1); /* Movimiento fluido */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Detalle estético: Una línea de color superior */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), #fcd34d);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 25px;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+h1 span {
+    color: var(--accent);
+    /* Eliminamos el neón exagerado por un brillo más sólido */
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.4));
+}
+
+/* Botones: Estilo "Tactical" */
+.btn-primary {
+    background-color: var(--accent);
+    color: #000; /* Texto negro para máximo contraste sobre amarillo/naranja */
+    padding: 12px 28px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.table-container {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #000000; /* Fondo negro para la tabla para dar profundidad */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    background-color: #18181b;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    padding: 18px;
+    border-bottom: 1px solid var(--border);
+}
+
+td {
+    padding: 18px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Inputs: Estilo consola de mando */
+input, select {
+    background-color: #09090b;
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 14px;
+    border-radius: 6px;
+    width: 100%;
+    font-family: 'Outfit', monospace; /* Fuente monoespaciada para datos */
+    margin-top: 8px;
+    transition: all 0.2s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--accent);
+    background-color: #000;
+    box-shadow: 0 0 0 2px var(--glow);
+}
+
+label {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+/* Badges con estilo "Etiqueta Militar" */
+.badge {
+    background-color: #27272a;
+    color: var(--text-primary);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid #3f3f46;
+    letter-spacing: 0.02em;
+}
+
+
+
+
+
+
+
+
+
+/* --- ESTILOS "DEV ARCHIVE" (Agregar al final de titan.css) --- */
+
+.landing-body {
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Courier New', Courier, monospace; /* Fuente Hacker */
+    background-color: #0d1117; /* Fondo GitHub Dark */
+    overflow-x: hidden;
+}
+
+.hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Pantalla dividida */
+    min-height: 100vh;
+    padding: 0 8%;
+    align-items: center;
+    gap: 50px;
+    background: radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.05) 0%, transparent 40%);
+}
+
+/* --- COLUMNA IZQUIERDA --- */
+
+.repo-badge {
+    color: #8b949e;
+    border: 1px solid #30363d;
+    background: #161b22;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.pulse {
+    color: #238636;
+    animation: blink 2s infinite;
+}
+
+.mega-title {
+    font-size: 4.5rem;
+    line-height: 1;
+    margin-bottom: 20px;
+    color: #e6edf3;
+    letter-spacing: -2px;
+}
+
+.highlight {
+    color: var(--accent);
+    display: block;
+    font-size: 5rem;
+    text-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #8b949e;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    border-left: 3px solid var(--accent);
+    padding-left: 15px;
+}
+
+/* Botones de Código */
+.btn-group {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-code {
+    background: #238636; /* Verde GitHub */
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.2s;
+}
+
+.btn-code:hover {
+    background: #2ea043;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(0,0,0,0.5);
+}
+
+.btn-outline {
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+    padding: 15px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.btn-outline:hover {
+    border-color: #8b949e;
+    background: #21262d;
+}
+
+.server-stats {
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+    font-size: 0.75rem;
+    color: #484f58;
+}
+
+/* --- COLUMNA DERECHA: TERMINAL --- */
+
+.terminal-window {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+    overflow: hidden;
+    position: relative;
+    /* Inclinación 3D sutil */
+    transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+    transition: transform 0.5s ease;
+}
+
+.terminal-window:hover {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+}
+
+.terminal-header {
+    background: #161b22;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #30363d;
+}
+
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+.terminal-title { margin-left: 15px; font-size: 0.8rem; color: #8b949e; }
+
+.terminal-body {
+    padding: 25px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Colores de Sintaxis */
+.purple { color: #d2a8ff; }
+.green { color: #a5d6ff; } /* Azul claro en dark mode */
+.blue { color: #79c0ff; }
+.yellow { color: #e3b341; }
+.comment { color: #8b949e; font-style: italic; }
+.indent { margin-left: 20px; }
+
+/* Cursor parpadeante */
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background: var(--accent);
+    animation: blink 1s infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .hero-section { grid-template-columns: 1fr; text-align: center; padding-top: 50px; }
+    .subtitle { margin: 0 auto 40px auto; border: none; }
+    .btn-group { justify-content: center; }
+    .server-stats { justify-content: center; }
+    .terminal-window { display: none; /* Ocultar en móviles */ }
+}
