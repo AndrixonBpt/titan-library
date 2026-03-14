@@ -9,11 +9,15 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::table('books', function (Blueprint $table) {
-            //  ruta del archivo
-            $table->string('file_path')->nullable()->after('isbn');
+        Schema::create('tags', function (Blueprint $table) {
+            $table->id();
+            
+            // Nombre de la etiqueta (Ej. "#InteligenciaArtificial")
+            $table->string('name')->unique(); 
+            
+            $table->timestamps();
         });
     }
 
@@ -22,8 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('books', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('tags');
     }
 };

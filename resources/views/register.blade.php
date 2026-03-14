@@ -52,7 +52,6 @@
             </button>
         </form>
         
-        <!-- CORRECCIÓN AQUÍ: Usamos padding-top en lugar de pt-4 -->
         <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid #333;">
             <a href="{{ route('login') }}" style="color: var(--text-secondary); font-size: 0.9rem; text-decoration: none;">
                 ¿Ya tienes cuenta? <span style="color: var(--accent);">Inicia Sesión</span>

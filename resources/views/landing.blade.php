@@ -10,7 +10,7 @@
 
     <div class="hero-section">
         
-        <!-- COLUMNA IZQUIERDA: Información -->
+        <!-- COLUMNA IZQUIERDA: Info -->
         <div class="hero-text">
             <div class="repo-badge">
                 <span class="pulse">●</span> branch: main / v.3.0
@@ -26,7 +26,7 @@
             </p>
 
             <div class="btn-group">
-                <!-- Botón estilo comando de consola -->
+                <!--  comando de consola -->
                 <a href="{{ route('library.index') }}" class="btn-code">
                     <span style="color: #a5b3ce">$</span> cd /iniciar_sistema
                 </a>
@@ -35,7 +35,7 @@
                 </a>
             </div>
 
-            <!-- Datos técnicos falsos para ambientar -->
+            <!-- Datos técnicos  -->
             <div class="server-stats">
                 <span>> UPTIME: 99.9%</span>
                 <span>> LATENCY: 12ms</span>
@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <!-- COLUMNA DERECHA: La Terminal Visual -->
+        <!-- COLUMNA DERECHA: La Terminal -->
         <div class="terminal-window">
             <div class="terminal-header">
                 <div class="dot red"></div>
