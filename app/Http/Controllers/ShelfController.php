@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ShelfController extends Controller
 {
-    // 1. Mostrar las estanterías del usuario actual
+    // estanterías del usuario actual
     public function index()
     {
         // Traemos las estanterías del usuario logueado y contamos cuántos libros tiene cada una
@@ -17,7 +17,7 @@ class ShelfController extends Controller
         return view('shelves.index', compact('shelves'));
     }
 
-    // 2. Crear una nueva estantería
+    // Crear una nueva estantería
     public function store(Request $request)
     {
         $request->validate([
@@ -32,14 +32,14 @@ class ShelfController extends Controller
         return back()->with('success', 'WORKSPACE_CREATED: Estantería creada.');
     }
 
-    // 3. Ver los libros dentro de una estantería
+    // Ver los libros dentro de una estantería
     public function show($id)
     {
         $shelf = Shelf::where('user_id', Auth::id())->with('books.author')->findOrFail($id);
         return view('shelves.show', compact('shelf'));
     }
 
-    // 4. Agregar un libro a una estantería
+    // Agregar un libro a una estantería
     public function addBook(Request $request, $book_id)
     {
         $request->validate(['shelf_id' => 'required|exists:shelves,id']);
@@ -55,7 +55,7 @@ class ShelfController extends Controller
         return back()->with('error', 'ERROR: El archivo ya existe en este espacio.');
     }
 
-    // 5. Quitar un libro de la estantería
+    //Quitar un libro de la estantería
     public function removeBook($shelf_id, $book_id)
     {
         $shelf = Shelf::where('user_id', Auth::id())->findOrFail($shelf_id);

@@ -9,12 +9,12 @@ class Tag extends Model
 {
     use HasFactory;
 
-    // 1. SEGURIDAD
+    // SEGURIDAD
     protected $fillable = [
         'name'
     ];
 
-    // 2. RELACIONES: Una Etiqueta pertenece a MUCHOS Libros (N a M)
+    // RELACIONES: Una Etiqueta pertenece a MUCHOS Libros (N a M)
     public function books()
     {
         return $this->belongsToMany(Book::class);

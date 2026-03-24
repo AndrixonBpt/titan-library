@@ -7,14 +7,14 @@ use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
-    // Mostrar lista de etiquetas
+    // lista de etiquetas
     public function index()
     {
         $tags = Tag::all();
         return view('tags.index', compact('tags'));
     }
 
-    // Mostrar formulario para crear
+    // formulario 
     public function create()
     {
         return view('tags.create');

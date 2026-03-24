@@ -9,21 +9,21 @@ class Book extends Model
 {
     use HasFactory;
 
-    // 1. SEGURIDAD: Columnas permitidas
+    // SEGURIDAD: Columnas permitidas
     protected $fillable = [
         'title', 
         'isbn', 
         'published_year', 
         'file_path',
         'author_id',
-        'category_id',    // NUEVO
-        'publisher_id',   // NUEVO
-        'collection_id',   // NUEVO
+        'category_id',    
+        'publisher_id',   
+        'collection_id',   
         'description',
         'cover_image'
     ];
 
-    // --- 2. RELACIONES: PERTENECE A (1 a N) ---
+    // ---  RELACIONES: PERTENECE A (1 a N) ---
     
     public function author() {
         return $this->belongsTo(Author::class);
@@ -41,7 +41,7 @@ class Book extends Model
         return $this->belongsTo(Collection::class);
     }
 
-    // --- 3. RELACIONES: MUCHOS A MUCHOS (N a M) ---
+    // --- RELACIONES: MUCHOS A MUCHOS (N a M) ---
     
     public function tags() {
         return $this->belongsToMany(Tag::class);
@@ -51,7 +51,7 @@ class Book extends Model
         return $this->belongsToMany(Shelf::class); // Estanterías de usuarios
     }
 
-    // --- 4. RELACIONES: TIENE MUCHOS (1 a N) ---
+    // --- RELACIONES: TIENE MUCHOS (1 a N) ---
     
     public function bookmarks() {
         return $this->hasMany(Bookmark::class); // Quién lo tiene en favoritos

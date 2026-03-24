@@ -9,7 +9,7 @@ class Collection extends Model
 {
     use HasFactory;
 
-    // 1. SEGURIDAD: Protegemos contra asignación masiva
+    //SEGURIDAD: Protegemos contra asignación masiva
     protected $fillable = [
         'name',
         'description'

@@ -7,23 +7,23 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    // 1. Mostrar lista de categorías
+    // Mostrar lista de categorías
     public function index()
     {
         $categories = Category::all();
         return view('categories.index', compact('categories'));
     }
 
-    // 2. Mostrar formulario para crear
+    // Mostrar formulario para crear
     public function create()
     {
         return view('categories.create');
     }
 
-    // 3. Guardar en base de datos
+    // Guardar en base de datos
     public function store(Request $request)
     {
-        // Validamos que el nombre sea obligatorio y no se repita
+        // nombre  obligatorio y no se repite
         $request->validate([
             'name' => 'required|string|max:255|unique:categories',
             'description' => 'nullable|string'

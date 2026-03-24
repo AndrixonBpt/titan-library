@@ -62,7 +62,7 @@ class AuthController extends Controller
             'email.unique' => 'Este correo ya está registrado en el sistema.',
             'password.required' => 'La contraseña es obligatoria.',
             'password.min' => 'La contraseña debe tener al menos 8 caracteres.',
-            'password.confirmed' => 'Las contraseñas no coinciden.', // <--- ¡AQUÍ ESTÁ EL MENSAJE!
+            'password.confirmed' => 'Las contraseñas no coinciden.', 
         ]);
 
         // Crear Usuario

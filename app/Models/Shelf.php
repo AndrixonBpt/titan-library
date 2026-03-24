@@ -9,7 +9,7 @@ class Shelf extends Model
 {
     use HasFactory;
 
-    // 1. SEGURIDAD
+    // SEGURIDAD
     protected $fillable = [
         'name',
         'description',
@@ -17,7 +17,7 @@ class Shelf extends Model
         'is_public'
     ];
 
-    // 2. RELACIONES
+    // RELACIONES
     // Una estantería pertenece a UN Usuario
     public function user()
     {

@@ -7,20 +7,20 @@ use Illuminate\Http\Request;
 
 class PublisherController extends Controller
 {
-    // 1. Mostrar lista de editoriales
+    // lista de editoriales
     public function index()
     {
         $publishers = Publisher::all();
         return view('publishers.index', compact('publishers'));
     }
 
-    // 2. Mostrar formulario para crear
+    // formulario para crear
     public function create()
     {
         return view('publishers.create');
     }
 
-    // 3. Guardar en base de datos
+    // Guardar en base de datos
     public function store(Request $request)
     {
         // Validamos que el nombre sea obligatorio y no se repita

@@ -22,8 +22,7 @@ class DashboardController extends Controller
         $pendingRequests = BookRequest::where('status', 'pending')->count();
         $pendingReports = Report::where('status', 'pending')->count();
 
-        // 3. Top 5 Libros Más Descargados (Usando la relación 'downloadLogs')
-        // withCount crea una columna virtual llamada 'download_logs_count'
+        // 3. Top 5 Libros Más Descargados 
         $topBooks = Book::withCount('downloadLogs')
                         ->orderBy('download_logs_count', 'desc')
                         ->take(5)

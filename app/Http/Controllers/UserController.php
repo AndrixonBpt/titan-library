@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    // 1. Mostrar lista de usuarios
+    // lista de usuarios
     public function index()
     {
         // Traemos todos los usuarios, ordenados por los más recientes
@@ -16,12 +16,12 @@ class UserController extends Controller
         return view('users.index', compact('users'));
     }
 
-    // 2. Cambiar el rol de un usuario
+    // Cambiar el rol de un usuario
     public function updateRole(Request $request, $id)
     {
         $user = User::findOrFail($id);
 
-        // Medida de seguridad: Evitar que el admin se quite sus propios poderes por accidente
+        // Medida de seguridad: Evitar que el admin se quite sus propios permisos por accidente
         if (Auth::id() == $id) {
             return back()->with('error', 'OPERATION_DENIED: No puedes cambiar tu propio nivel de acceso.');
         }
@@ -35,7 +35,7 @@ class UserController extends Controller
         return back()->with('success', 'ACCESS_LEVEL_UPDATED: Privilegios de usuario modificados.');
     }
 
-    // 3. Eliminar un usuario
+    // Eliminar un usuario
     public function destroy($id)
     {
         $user = User::findOrFail($id);

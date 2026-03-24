@@ -9,7 +9,7 @@ class Report extends Model
 {
     use HasFactory;
 
-    // 1. SEGURIDAD: Protegemos contra asignación masiva
+    // SEGURIDAD: Protegemos contra asignación masiva
     protected $fillable = [
         'user_id',
         'book_id',
@@ -18,7 +18,7 @@ class Report extends Model
         'status'
     ];
 
-    // 2. RELACIONES
+    // RELACIONES
     // Un reporte es creado por UN Usuario
     public function user()
     {

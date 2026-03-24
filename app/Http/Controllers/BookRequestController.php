@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class BookRequestController extends Controller
 {
-    // 1. Mostrar todas las peticiones (SOLO ADMIN)
+    // Mostrar todas las peticiones (SOLO ADMIN)
     public function index()
     {
         // Traemos todas las peticiones ordenadas por las más recientes, junto con los datos del usuario
@@ -16,13 +16,13 @@ class BookRequestController extends Controller
         return view('requests.index', compact('requests'));
     }
 
-    // 2. Mostrar formulario para pedir libro (USUARIOS)
+    //  formulario para pedir libro (USUARIOS)
     public function create()
     {
         return view('requests.create');
     }
 
-    // 3. Guardar la petición en la base de datos (USUARIOS)
+    // Guardar la petición en la base de datos (USUARIOS)
     public function store(Request $request)
     {
         $request->validate([
@@ -42,7 +42,7 @@ class BookRequestController extends Controller
         return redirect()->route('library.index')->with('success', 'TRANSMISSION_SENT: Tu petición ha sido enviada al Bibliotecario.');
     }
 
-    // 4. Actualizar el estado de la petición (SOLO ADMIN)
+    // Actualizar el estado de la petición (SOLO ADMIN)
     public function update(Request $request, $id)
     {
         $bookRequest = BookRequest::findOrFail($id);

@@ -9,14 +9,14 @@ class DownloadLog extends Model
 {
     use HasFactory;
 
-    // 1. SEGURIDAD: Protegemos contra asignación masiva
+    // SEGURIDAD: Protegemos contra asignación masiva
     protected $fillable = [
         'user_id',
         'book_id',
         'ip_address'
     ];
 
-    // 2. RELACIONES
+    // RELACIONES
     // Un registro de descarga pertenece a UN Usuario
     public function user()
     {

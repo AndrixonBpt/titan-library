@@ -9,7 +9,7 @@ class BookRequest extends Model
 {
     use HasFactory;
 
-    // 1. SEGURIDAD: Protegemos contra asignación masiva
+    // SEGURIDAD: Protegemos contra asignación masiva
     protected $fillable = [
         'user_id',
         'title',
@@ -18,7 +18,7 @@ class BookRequest extends Model
         'status'
     ];
 
-    // 2. RELACIONES
+    // RELACIONES
     // Una petición pertenece a UN Usuario
     public function user()
     {

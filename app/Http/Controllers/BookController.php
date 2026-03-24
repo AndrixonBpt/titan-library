@@ -14,28 +14,28 @@ class BookController extends Controller
 {
     public function index(Request $request)
     {
-        // 1. Iniciamos la consulta base con sus relaciones
+        //  consulta base con sus relaciones
         $query = Book::with(['author', 'category', 'publisher', 'bookmarks']);
 
-        // 2. Aplicamos el filtro de BÚSQUEDA POR TÍTULO
+        //  filtro de BÚSQUEDA POR TÍTULO
         if ($request->filled('search')) {
             $query->where('title', 'like', '%' . $request->search . '%');
         }
 
-        // 3. Aplicamos el filtro de CATEGORÍA
+        // filtro de CATEGORÍA
         if ($request->filled('category_id')) {
             $query->where('category_id', $request->category_id);
         }
 
-        // 4. Aplicamos el filtro de AUTOR
+        //  filtro de AUTOR
         if ($request->filled('author_id')) {
             $query->where('author_id', $request->author_id);
         }
 
-        // Ejecutamos la consulta final
+        // consulta final
         $books = $query->get();
 
-        // Traemos las listas para los menús desplegables del filtro
+        // listas para los menús desplegables del filtro
         $categories = Category::all();
         $authors = Author::all();
 
@@ -67,7 +67,6 @@ class BookController extends Controller
             'isbn' => 'required',
             'published_year' => 'required|integer',
             'book_file' => 'required|mimes:pdf|max:10000',
-            // NUEVAS VALIDACIONES:
             'description' => 'nullable|string',
             'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048' // Máximo 2MB para imágenes
         ]);
@@ -84,7 +83,7 @@ class BookController extends Controller
         // Crear Libro
         $book = Book::create([
             'title' => $request->title,
-            'description' => $request->description, // <-- Guardamos Descripción
+            'description' => $request->description, 
             'author_id' => $request->author_id,
             'category_id' => $request->category_id,
             'publisher_id' => $request->publisher_id,

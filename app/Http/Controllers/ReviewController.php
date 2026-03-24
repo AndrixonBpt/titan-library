@@ -11,7 +11,7 @@ class ReviewController extends Controller
     // Guardar o actualizar la reseña
     public function store(Request $request, $book_id)
     {
-        // Validamos que la calificación sea obligatoria y entre 1 y 5
+        // Validacion de la calificación sea obligatoria y entre 1 y 5
         $request->validate([
             'rating' => 'required|integer|min:1|max:5',
             'comment' => 'nullable|string|max:1000'
@@ -32,7 +32,7 @@ class ReviewController extends Controller
         return back()->with('success', 'TRANSMISSION_RECEIVED: Tu reseña ha sido registrada.');
     }
 
-    // Borrar la reseña (Solo si es tuya)
+    // Borrar la reseña 
     public function destroy($id)
     {
         $review = Review::findOrFail($id);

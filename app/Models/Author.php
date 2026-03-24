@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Author extends Model
 {
-    // Permitimos que estos campos se llenen masivamente
+    // se llenan masivamente
     protected $fillable = ['name', 'biography'];
 
     // RELACIÓN: Un autor TIENE MUCHOS libros

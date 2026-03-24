@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ReportController extends Controller
 {
-    // 1. Mostrar todos los reportes (SOLO ADMIN)
+    // Mostrar todos los reportes (SOLO ADMIN)
     public function index()
     {
         // Traemos todos los reportes con los datos del usuario y el libro afectado
@@ -36,7 +36,7 @@ class ReportController extends Controller
         return back()->with('success', 'SYS_ALERT_SENT: Tu reporte ha sido enviado al equipo técnico.');
     }
 
-    // 3. Actualizar el estado del reporte (SOLO ADMIN)
+    // Actualizar el estado del reporte (SOLO ADMIN)
     public function update(Request $request, $id)
     {
         $report = Report::findOrFail($id);
